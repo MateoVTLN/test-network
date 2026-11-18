@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page de Test GA4 - Projet Académique</title>
+    <title>Page de Test GA4 + Clarity - Projet Académique</title>
     
-    <!-- 🌟 GA4 IMPLEMENTATION (Remplace G-XXXXXXXXXX par ton ID) -->
+    <!-- 🌟 GA4 (Remplace G-98V0E7W8NY par ton ID si différent) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-98V0E7W8NY"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        
-        // Configuration de base
         gtag('config', 'G-98V0E7W8NY', {
             'send_page_view': true,
-            'debug_mode': true  // 🌟 IMPORTANT : Active le mode debug
+            'debug_mode': true
         });
-        
-        // Événement personnalisé pour tester
-        gtag('event', 'page_loaded', {
-            'custom_parameter': 'test_value'
-        });
+        gtag('event', 'page_loaded', {'custom_parameter': 'test_value'});
+    </script>
+    
+    <!-- 🌟 MICROSOFT CLARITY (REMPLACE xxxxxxxxxx PAR TON ID CLARITY) -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "xxxxxxxxxx");
     </script>
     
     <style>
@@ -62,24 +65,23 @@
             margin: 10px 5px;
         }
         button:hover { background: #1565c0; }
+        .scroll-section {
+            height: 1500px;
+            background: linear-gradient(to bottom, #fff, #e0e0e0);
+            margin-top: 30px;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🧪 Page de Test GA4</h1>
+        <h1>🧪 Page de Test GA4 + Clarity</h1>
         <div class="info-box">
             <h3>Projet Académique - Test de Scripts Python</h3>
-            <p>Cette page est utilisée pour tester la détection de trafic automatisé par GA4.</p>
-            <p><strong>ID de mesure :</strong> G-98V0E7W8NY</p>
+            <p>Cette page teste la détection de trafic automatisé par GA4 et Microsoft Clarity.</p>
+            <p><strong>ID GA4 :</strong> G-98V0E7W8NY</p>
+            <p><strong>ID Clarity :</strong> xxxxxxxxxx</p>
         </div>
-        
-        <h2>Contenu de Test</h2>
-        <p>Si vous voyez cette page, cela signifie que :</p>
-        <ul>
-            <li>✅ Le JavaScript s'est exécuté</li>
-            <li>✅ GA4 a été initialisé</li>
-            <li>✅ Le hit "page_view" a été envoyé</li>
-        </ul>
         
         <h2>Actions Interactives</h2>
         <button onclick="testButtonClick()">🖱️ Tester le Clic Bouton</button>
@@ -87,6 +89,14 @@
         
         <div class="status" id="status">
             Statut : En attente d'interactions...
+        </div>
+        
+        <div class="scroll-section">
+            <h2>Zone de Scroll</h2>
+            <p>Scroll vers le bas pour déclencher des événements de scroll...</p>
+            <p>Continue à scroller...</p>
+            <p>Encore plus bas...</p>
+            <p>Presque en bas...</p>
         </div>
     </div>
 
@@ -103,17 +113,13 @@
         function testScroll() {
             window.scrollTo({ top: 500, behavior: 'smooth' });
             setTimeout(() => {
-                gtag('event', 'scroll_event', {
-                    'scroll_depth': '50%'
-                });
+                gtag('event', 'scroll_event', {'scroll_depth': '50%'});
                 document.getElementById('status').innerHTML += 
                     '<br>✅ Événement scroll_event envoyé';
             }, 500);
         }
         
-        // Log dans la console pour debug
-        console.log('🚀 GA4 Test Page Loaded');
-        console.log('📊 DataLayer:', window.dataLayer);
+        console.log('🚀 GA4 + Clarity Test Page Loaded');
     </script>
 </body>
 </html>
